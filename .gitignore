@@ -1,0 +1,58 @@
+# Local configuration and secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Virtual environments
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Coverage
+.coverage
+coverage.xml
+htmlcov/
+
+# Logs
+logs/
+*.log
+
+# Generated datasets
+data/raw/*.csv
+data/processed/*
+data/reference/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/reference/.gitkeep
+
+# Model artifacts
+models/candidates/*
+models/registry/*
+models/production/*
+!models/candidates/.gitkeep
+!models/registry/.gitkeep
+!models/production/.gitkeep
+
+# Generated reports
+reports/evaluation/*
+reports/monitoring/*
+!reports/evaluation/.gitkeep
+!reports/monitoring/.gitkeep
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# Operating systems
+.DS_Store
+Thumbs.db

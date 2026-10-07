@@ -1,0 +1,13 @@
+dataset:
+  name: dataset_quality
+  version: "1.0.0"
+  output_file: data/raw/dataset_quality.csv
+
+generation:
+  number_of_records: 3000
+  random_seed: 42
+
+  class_distribution:
+    good: 0.40
+    acceptable: 0.35
+    poor: 0.25
