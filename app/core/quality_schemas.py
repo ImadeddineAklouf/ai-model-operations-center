@@ -1,7 +1,7 @@
 from enum import StrEnum
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
-
+from typing import Literal 
 
 class QualityLabel(StrEnum):
     """
@@ -151,3 +151,65 @@ class DatasetGenerationConfig(BaseModel):
             )
 
         return self
+
+
+ValidationSeverity = Literal[
+    "INFO",
+    "WARNING",
+    "ERROR",
+]
+
+
+class DatasetValidationIssue(BaseModel):
+    """
+    Problème détecté pendant la validation du dataset.
+    """
+
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+
+    code: str = Field(
+        min_length=1,
+    )
+
+    severity: ValidationSeverity
+
+    message: str = Field(
+        min_length=1,
+    )
+
+    column_name: str | None = None
+
+
+class DatasetValidationReport(BaseModel):
+    """
+    Rapport global de validation du dataset.
+    """
+
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+
+    dataset_path: str
+    valid: bool
+
+    row_count: int = Field(
+        ge=0,
+    )
+
+    column_count: int = Field(
+        ge=0,
+    )
+
+    duplicate_row_count: int = Field(
+        ge=0,
+    )
+
+    missing_value_count: int = Field(
+        ge=0,
+    )
+
+    class_distribution: dict[str, int]
+
+    issues: list[DatasetValidationIssue]

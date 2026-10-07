@@ -56,3 +56,7 @@ reports/monitoring/*
 # Operating systems
 .DS_Store
 Thumbs.db
+
+# Generated dataset validation reports
+reports/data_validation/*.json
+!reports/data_validation/.gitkeep

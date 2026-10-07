@@ -26,6 +26,20 @@ RATIO_COLUMNS = [
 ]
 
 
+EXPECTED_COLUMNS = [
+"row_count",
+"column_count",
+"missing_value_ratio",
+"duplicate_row_ratio",
+"invalid_type_ratio",
+"primary_key_uniqueness",
+"foreign_key_match_ratio",
+"schema_change_count",
+"outlier_ratio",
+"freshness_delay_hours",
+"quality_label",
+]
+
 def clip_ratio(value: float) -> float:
     """
     Limite un ratio dans l'intervalle [0, 1].
@@ -348,7 +362,8 @@ def generate_quality_dataset(
             )
 
     dataframe = pd.DataFrame(
-        records
+        records,
+        columns=EXPECTED_COLUMNS,
     )
 
     dataframe = dataframe.sample(
