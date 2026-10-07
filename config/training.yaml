@@ -1,0 +1,19 @@
+training:
+  dataset_path: "data/raw/dataset_quality.csv"
+  target_column: "quality_label"
+
+  split:
+    train_ratio: 0.70
+    validation_ratio: 0.15
+    test_ratio: 0.15
+    random_seed: 42
+    stratify: true
+
+  preprocessing:
+    imputation_strategy: "median"
+    scale_features: true
+
+  output:
+    processed_data_directory: "data/processed"
+    artifacts_directory: "models/preprocessing"
+    reports_directory: "reports/training"
