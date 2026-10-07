@@ -1,0 +1,20 @@
+baseline_model:
+  model_name: "logistic_regression"
+  model_version: "0.1.0"
+
+  training:
+    maximum_iterations: 1000
+    random_seed: 42
+    class_weight: null
+
+  evaluation:
+    primary_metric: "f1_macro"
+    minimum_f1_macro: 0.80
+    minimum_poor_recall: 0.85
+
+  input:
+    processed_data_directory: "data/processed"
+
+  output:
+    model_directory: "models/candidates/logistic_regression"
+    evaluation_directory: "reports/evaluation/baseline"
