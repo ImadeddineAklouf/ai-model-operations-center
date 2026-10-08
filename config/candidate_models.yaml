@@ -1,0 +1,36 @@
+candidate_models:
+  random_seed: 42
+
+  models:
+    logistic_regression:
+      enabled: true
+      version: "1.0.0"
+      maximum_iterations: 1000
+      class_weight: null
+
+    random_forest:
+      enabled: true
+      version: "1.0.0"
+      number_of_estimators: 200
+      maximum_depth: null
+      minimum_samples_split: 2
+      minimum_samples_leaf: 1
+      class_weight: null
+
+    gradient_boosting:
+      enabled: true
+      version: "1.0.0"
+      number_of_estimators: 100
+      learning_rate: 0.10
+      maximum_depth: 3
+
+  evaluation:
+    minimum_f1_macro: 0.80
+    minimum_poor_recall: 0.85
+
+  input:
+    processed_data_directory: "data/processed"
+
+  output:
+    candidates_directory: "models/candidates"
+    comparison_directory: "reports/evaluation/candidates"
